@@ -1,0 +1,135 @@
+<div [@routerTransition]>
+	<app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+	<div class="row">
+		<div class="col-lg-12">
+
+			<form role="form" novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+			<div class="row">
+				<fieldset class="form-group" class="col-lg-6">
+					<label>Step Name</label>
+					 <input class="form-control" [(ngModel)]="step.stepName" name="stepName"  #stepName="ngModel" required >
+					<div *ngIf="stepName.invalid && (stepName.dirty || stepName.touched)" class="alert alert-danger">
+						<div *ngIf="stepName.errors.required">Name is required.</div>
+					</div>
+				</fieldset>
+					<fieldset class="form-group"class="col-lg-6">
+					<label>Step No</label> 
+					<input class="form-control" [(ngModel)]="step.stepNo" name="stepNo" #stepNo="ngModel" required >
+					<div *ngIf="stepNo.invalid && (stepNo.dirty || stepNo.touched)" class="alert alert-danger">
+						<div *ngIf="stepNo.errors.required">No is required.</div>
+					</div>
+				</fieldset>
+			
+				</div>
+				<div class="row">
+				<fieldset class="form-group" class="col-lg-10">
+					<label>Step Description</label> 
+					<textarea class="form-control" [(ngModel)]="step.stepDesc" name="stepDesc" #stepDesc="ngModel" required minlength="4"></textarea>
+					<div *ngIf="stepDesc.invalid && (stepDesc.dirty || stepDesc.touched)" class="alert alert-danger">
+						<div *ngIf="stepDesc.errors.required">Description is required.</div>
+						<div *ngIf="stepDesc.errors.minlength">Description must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+				</div>
+				<div class="row">
+				<fieldset class="form-group" class="col-lg-6">
+					<label>Step Sequence</label> 
+					<input type="number" class="form-control" [(ngModel)]="step.sequence" name="sequence" #sequence="ngModel" required >
+					<div *ngIf="sequence.invalid && (sequence.dirty || sequence.touched)" class="alert alert-danger">
+						<div *ngIf="sequence.errors.required">Sequence is required.</div>
+					</div>
+				</fieldset>
+			
+				<fieldset class="form-group" class="col-lg-6">
+					<label>Take Photo </label> <br/>
+				  <input type="radio"  name="takePhoto" [(ngModel)]="step.takePhoto" #takePhoto="ngModel"  required [value]="true" > Yes
+				  <input type="radio" name="takePhoto" [(ngModel)]="step.takePhoto" #takePhoto="ngModel"  required [value]="false" > No
+				  <div *ngIf="takePhoto.invalid && (takePhoto.dirty || takePhoto.touched)" class="alert alert-danger">
+						<div *ngIf="takePhoto.errors.required">takePhoto is required.</div>
+				  </div>
+				</fieldset>
+				</div>
+				<div class="row">
+				<fieldset class="form-group"  class="col-lg-6">
+					<label>Get Type</label> 
+				 <select class="form-control" name="getType" [(ngModel)]="step.getType"   #getType="ngModel" >
+			        <option value="byId"> byId</option>
+			        <option value="byClass"> byClass</option>
+			        <option value="byTag"> byTag</option>
+			        <option value="byName"> byName</option>
+			        <option value="byLink"> byLink</option>
+			        <option value="byPartialLink"> byPartialLink</option>
+			        <option value="byCss"> byCss</option>
+			        <option value="byXpath"> byXpath</option>
+			        <option value="Alert"> Alert</option>
+			      </select>
+			        
+				</fieldset>
+				<fieldset class="form-group"  class="col-lg-6">
+					<label>url</label> 
+				    <input  type="url" class="form-control" [(ngModel)]="step.url" #url="ngModel" name="url">
+				    <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
+						<div *ngIf="url.errors.url">invalid</div>
+				   </div>
+				</fieldset>
+				</div>
+					<div class="row">
+				<fieldset class="form-group"  class="col-lg-6">
+					<label>Element Name</label> 
+				    <input class="form-control" [(ngModel)]="step.elementName" name="elementName" #elementName="ngModel">
+				</fieldset>
+				<fieldset class="form-group"  class="col-lg-6">
+					<label>Element Value</label> 
+				    <input class="form-control" [(ngModel)]="step.elementValue" name="elementValue" #elementValue="ngModel">
+				</fieldset>
+				<fieldset class="form-group"  class="col-lg-6">
+					<label>Element Sequence</label> 
+				    <input type="number"  class="form-control" [(ngModel)]="step.elementSeq" name="elementSeq" #elementValue="ngModel">
+				</fieldset>
+				<fieldset class="form-group"  class="col-lg-6">
+					<label>waitTime</label> 
+				    <input type="number"  class="form-control" [(ngModel)]="step.waitTime" name="waitTime" #elementValue="ngModel">
+				</fieldset>
+				</div>
+				<div class="row">
+				<fieldset class="form-group" class="col-lg-6">
+					<label>Do Type</label> 
+				 <select class="form-control" name="doType" [(ngModel)]="step.doType" #doType="ngModel" required>
+			        <option value="FetchingPage"> FetchingPage</option>
+			        <option value="getText"> getText</option>
+			        <option value="click"> click</option>
+			        <option value="sendKeys"> sendKeys</option>
+			        <option value="clear"> clear</option>
+			        <option value="selectByIndex"> selectByIndex</option>
+			        <option value="selectByVisibleText"> selectByVisibleText</option>
+			        <option value="selectByValue"> selectByValue</option>
+			        <option value="isSelected"> isSelected</option>
+			        <option value="isEnabled"> isEnabled</option>
+			        <option value="isDisplayed"> isDisplayed</option>
+			        <option value="noThing"> noThing</option>
+			        <option value="accept"> accept</option>
+			        <option value="dismiss"> dismiss</option>
+			      </select>
+			       <div *ngIf="doType.invalid && (doType.dirty || doType.touched)" class="alert alert-danger">
+						<div *ngIf="doType.errors.required">doType is required.</div>
+				  </div>
+				</fieldset>
+				<fieldset class="form-group" class="col-lg-6">
+					<label>Except Value</label> 
+					<input class="form-control" [(ngModel)]="step.excptValue" name="excptValue" #excptValue="ngModel">
+				</fieldset>
+				</div>
+				<div class="row" class="form-group" style="margin-top: 10px;text-align: center;">
+				<button type="submit" [disabled]="!f.form.valid"
+					class="btn btn-secondary">Submit</button>
+				<button type="reset" class="btn btn-secondary">Reset Button</button>
+				<button type="button" class="btn btn-secondary" (click)="back()">Back</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+	<!-- /.row -->
+</div>

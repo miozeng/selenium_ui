@@ -1,0 +1,43 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Module List'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+        <div class="col col-xl-10 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">Module Rows
+                 <a [routerLink]="['/moduleedit/'+ projectId+'/0']" [routerLinkActive]="['router-link-active']"  style="float: right;">add</a>
+                </div>
+                <div class="card-block table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>name</th>
+                            <th>description</th>
+                            <th>excuteDate</th>
+                            <th>Test Case</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                            <th>Run Test</th>
+                            <th>Result</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let module of modules let i = index">
+                            <td>{{i+1}}</td>
+                            <td> {{module.modulName}}</td>
+                            <td>{{module.modulDesc}}</td>
+                             <td>{{module.excuteDate | date:'yyyy-MM-dd hh:mm:ss'}}</td>
+                            <td><a [routerLink]="['/case/'+module.modulId]" [routerLinkActive]="['router-link-active']" >case</a></td>
+                            <td><a [routerLink]="['/moduleedit/'+ projectId+'/'+module.modulId]" [routerLinkActive]="['router-link-active']" >edit</a></td>
+                            <td><a href="javascript:void(0);" (click)="delete(module.modulId)" >Delete</a></td>
+                            <td><a href="javascript:void(0);" (click)="runTest(module.modulId)">Run test</a></td>
+                            <td><a href="{{baseurl}}{{module.project.projectName}}/{{module.modulName}}.html"  target="_Blank">result</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</div>

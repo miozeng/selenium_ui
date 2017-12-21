@@ -1,0 +1,44 @@
+<div [@routerTransition]>
+    <app-page-header [heading]="'Project List'" [icon]="'fa-table'"></app-page-header>
+    <div class="row">
+        <div class="col col-xl-10 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">Project Rows
+                 <a [routerLink]="['/projectedit/0']" [routerLinkActive]="['router-link-active']"  style="float: right;">add</a>
+                </div>
+                <div class="card-block table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>name</th>
+                            <th>description</th>
+                             <th>Is show</th>
+                            <th>Module</th>
+                            <th>Edit</th>
+                             <th>Delete</th>
+                            <th>Run test</th>
+                            <th>Result</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let project of projects let i = index">
+                            <td>{{i+1}}</td>
+                            <td> {{project.projectName}}</td>
+                            <td >{{project.projectDesc}}</td>
+                            <td >{{project.projectShow}}</td>
+                            <td><a [routerLink]="['/module/'+project.projectId]" [routerLinkActive]="['router-link-active']" >module</a></td>
+                            <td><a [routerLink]="['/projectedit/'+project.projectId]" [routerLinkActive]="['router-link-active']" >edit</a></td>
+                            <td><a href="javascript:void(0);" (click)="delete(project.projectId)">Delete</a></td>
+                            <td><a href="javascript:void(0);" (click)="runTest(project.projectId)">Run test</a></td> 
+                            <td><a href="{{baseurl}}{{project.projectName}}/{{project.projectName}}.html"  target="_Blank">result</a></td>
+                            
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<div [@routerTransition]>
+	<app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+	<div class="row">
+		<div class="col-lg-8">
+
+			<form role="form" novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+				<fieldset class="form-group">
+					<label>Project Name</label>
+					 <input class="form-control" [(ngModel)]="project.projectName" name="projectName" #projectName="ngModel" required minlength="4">
+					<div *ngIf="projectName.invalid && (projectName.dirty || projectName.touched)" class="alert alert-danger">
+						<div *ngIf="projectName.errors.required">Name is required.</div>
+						<div *ngIf="projectName.errors.minlength">Name must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+				<fieldset class="form-group">
+					<label>Project Description</label> 
+					<textarea class="form-control" [(ngModel)]="project.projectDesc" name="projectDesc" #projectDesc="ngModel" required minlength="4"></textarea>
+					<div *ngIf="projectDesc.invalid && (projectDesc.dirty || projectDesc.touched)" class="alert alert-danger">
+						<div *ngIf="projectDesc.errors.required">Description is required.</div>
+						<div *ngIf="projectDesc.errors.minlength">Description must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+				<fieldset class="form-group" >
+					<label>Show or hidden</label> <br/>
+				  <input type="radio"  name="projectShow" [(ngModel)]="project.projectShow" #projectShow="ngModel"  required [value]="true" > Show
+				  <input type="radio" name="projectShow" [(ngModel)]="project.projectShow" #projectShow="ngModel"  required [value]="false" > hidden
+				  <div *ngIf="projectShow.invalid && (projectShow.dirty || projectShow.touched)" class="alert alert-danger">
+						<div *ngIf="projectShow.errors.required">Show or hidden is required.</div>
+				  </div>
+				</fieldset>
+				<div class="row" class="form-group"style="margin-top: 10px; text-align: center;">
+				<button type="submit" [disabled]="!f.form.valid"
+					class="btn btn-secondary">Submit</button>
+				<button type="reset" class="btn btn-secondary">Reset Button</button>
+				<button type="button" class="btn btn-secondary" (click)="back()">Back</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+	<!-- /.row -->
+</div>

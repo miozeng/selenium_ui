@@ -1,0 +1,58 @@
+<div [@routerTransition]>
+	<app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+	<div class="row">
+		<div class="col-lg-8">
+
+			<form role="form" novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+			<div class="row">
+		    	<fieldset class="form-group" class="col col-xl-3 col-lg-3">
+					<label>Case No</label>
+					 <input class="form-control" [(ngModel)]="case.caseNo" name="caseNo" #caseNo="ngModel" required minlength="2">
+					<div *ngIf="caseNo.invalid && (caseNo.dirty || caseNo.touched)" class="alert alert-danger">
+						<div *ngIf="caseNo.errors.required">caseNo is required.</div>
+						<div *ngIf="caseNo.errors.minlength">caseNo must be at least 2 characters long.</div>
+					</div>
+				</fieldset>
+				<fieldset class="form-group" class="col col-xl-3 col-lg-3">
+					<label>Case Name</label>
+					 <input class="form-control" [(ngModel)]="case.caseName" name="caseName" #caseName="ngModel" required minlength="4">
+					<div *ngIf="caseName.invalid && (caseName.dirty || caseName.touched)" class="alert alert-danger">
+						<div *ngIf="caseName.errors.required">Name is required.</div>
+						<div *ngIf="caseName.errors.minlength">Name must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+				<fieldset class="form-group" class="col col-xl-3 col-lg-3">
+					<label>Sequence</label>
+					 <input type="number" class="form-control" [(ngModel)]="case.sequence" name="sequence" #sequence="ngModel" required>
+					<div *ngIf="sequence.invalid && (sequence.dirty || sequence.touched)" class="alert alert-danger">
+						<div *ngIf="sequence.errors.required">Sequence is required.</div>
+					</div>
+				</fieldset>
+				</div>
+				<fieldset class="form-group">
+					<label>Case Description</label> 
+					<textarea class="form-control" [(ngModel)]="case.caseDesc" name="caseDesc" #caseDesc="ngModel" required minlength="4"></textarea>
+					<div *ngIf="caseDesc.invalid && (caseDesc.dirty || caseDesc.touched)" class="alert alert-danger">
+						<div *ngIf="caseDesc.errors.required">Description is required.</div>
+						<div *ngIf="caseDesc.errors.minlength">Description must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+
+				<div class="row" class="form-group"
+					style="margin-top: 10px; text-align: center;">
+					<button type="submit" [disabled]="!f.form.valid"
+						class="btn btn-secondary">Submit</button>
+					<button type="reset" class="btn btn-secondary">Reset
+						Button</button>
+					<button type="button" class="btn btn-secondary" (click)="back()">Back
+					</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+	<!-- /.row -->
+
+</div>

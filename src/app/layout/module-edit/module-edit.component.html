@@ -1,0 +1,36 @@
+<div [@routerTransition]>
+	<app-page-header [heading]="'Forms'" [icon]="'fa-edit'"></app-page-header>
+
+	<div class="row">
+		<div class="col-lg-10">
+
+			<form role="form" novalidate (ngSubmit)="onSubmit()" #f="ngForm">
+				<fieldset class="form-group">
+					<label>Module Name</label>
+					 <input class="form-control" [(ngModel)]="module.modulName" name="modulName" #modulName="ngModel" required minlength="4">
+					<div *ngIf="modulName.invalid && (modulName.dirty || modulName.touched)" class="alert alert-danger">
+						<div *ngIf="modulName.errors.required">Name is required.</div>
+						<div *ngIf="modulName.errors.minlength">Name must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+				<fieldset class="form-group">
+					<label>Module Description</label> 
+					<textarea class="form-control" [(ngModel)]="module.modulDesc" name="modulDesc" #modulDesc="ngModel" required minlength="4" id="modulDesc"></textarea>
+					<div *ngIf="modulDesc.invalid && (modulDesc.dirty || modulDesc.touched)" class="alert alert-danger">
+						<div *ngIf="modulDesc.errors.required">Description is required.</div>
+						<div *ngIf="modulDesc.errors.minlength">Description must be at least 4 characters long.</div>
+					</div>
+				</fieldset>
+				<div class="row" class="form-group"style="margin-top: 10px; text-align: center;">
+				<button type="submit" [disabled]="!f.form.valid"
+					class="btn btn-primary">Submit</button>
+				<button type="reset" class="btn btn-secondary">Reset Button</button>
+	            <button type="button" class="btn btn-secondary" (click)="back()">Back</button>
+				</div>
+			</form>
+
+		</div>
+
+	</div>
+	<!-- /.row -->
+</div>

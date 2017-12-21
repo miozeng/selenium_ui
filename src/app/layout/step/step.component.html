@@ -1,0 +1,65 @@
+
+<div [@routerTransition]>
+    <app-page-header [heading]="'Step List'" [icon]="'fa-table'"></app-page-header>
+  	
+	<div class="row" style="margin-top: 50px;">
+	
+	  <div class="col col-xl-12 col-lg-12">
+            <div class="card mb-3">
+                <div class="card-header">Step Rows
+                     <a [routerLink]="['/stepedit/'+ caseId +'/0']" [routerLinkActive]="['router-link-active']"  style="float: right;">add</a>
+                </div>
+                <div class="card-block table-responsive">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>description</th>
+                            <th>stepNo</th>
+                            <th>sequence</th>
+                            <th>takePhoto</th>
+                            <th>elementName</th>
+                            <th>elementValue</th>
+                            <th>elementSeq</th>
+                            <th>waitTime</th>
+                            <th>getType</th>
+                            <th>doType</th> 
+                            <th>excptValue</th>
+                            <th>url</th>
+                            <th>success</th>
+                            <th>image</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr *ngFor="let step of steps let i = index">
+                            <td> {{step.stepName}}</td>
+                            <td >{{step.stepDesc}}</td>
+                            <td >{{step.stepNo}}</td>
+                            <td >{{step.sequence}}</td>
+                            <td >{{step.takePhoto}}</td>
+                            <td >{{step.elementName}}</td>
+                            <td >{{step.elementValue}}</td>
+                            <td >{{step.elementSeq}}</td>
+                            <td >{{step.waitTime}}</td>
+                            <td >{{step.getType}}</td>
+                            <td >{{step.doType}}</td>
+                            <td >{{step.excptValue}}</td>  
+                            <td >{{step.url}}</td>  
+                            <td >{{step.success}}</td>  
+                            <td ><a href="{{baseurl+step.image}}" target="_Blank"><img *ngIf="step.image != null && step.image != ''" src="{{baseurl+step.image}}" alt="img" width="150" height="100"></a></td>  
+                            <td><a [routerLink]="['/stepedit/'+ caseId +'/'+ step.stepId]" [routerLinkActive]="['router-link-active']" >edit</a></td>
+                            <td><a href="javascript:void(0);" (click)="delete(step.stepId)">Delete</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+             <div class="row" class="form-group" style="margin-top: 10px;text-align: center;">
+	        <button type="button" class="btn btn-secondary"  (click)="back()">Back to Case</button>
+	        </div>
+        </div>
+       
+	</div>
+</div>

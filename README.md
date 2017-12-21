@@ -10,6 +10,11 @@ $ ng build
 4.与java项目结合
 拷贝dist文件夹到eclipse项目文件里
 修改dist/index.html的
-改为项目名+文件名/dmio/dist/
-
+```html
+<base href="/">   
+```
+改为项目名+文件名/selenium_tools/dist/
+```html
+ <base href="/selenium_tools/dist/">
+ ```
 对应的项目是[selenium_tools](https://github.com/miozeng/selenium_tools)，修改src\app\layout下的路径 baseUrl为你selenium_tools的访问路径

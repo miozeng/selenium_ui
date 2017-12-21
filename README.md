@@ -12,4 +12,4 @@ $ ng build
 修改dist/index.html的
 改为项目名+文件名/dmio/dist/
 
-对应的项目是selenium_tools，修改src\app\layout下的路径 baseUrl为你selenium_tools的访问路径
+对应的项目是[selenium_tools](https://github.com/miozeng/selenium_tools)，修改src\app\layout下的路径 baseUrl为你selenium_tools的访问路径

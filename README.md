@@ -20,7 +20,6 @@ $ ng build
 ```
 修改文件package.json
 ``` json
-...
 "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json",
@@ -29,7 +28,6 @@ $ ng build
     "lint": "ng lint",
     "e2e": "ng e2e"
 },
- ...
 ```
 
 5.与java项目结合

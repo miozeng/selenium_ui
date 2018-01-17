@@ -15,7 +15,7 @@ import { Case } from './case';
 })
 export class CaseComponent implements OnInit {
      modulId: number;
-     private cases : Case[] = [];
+      cases : Case[] = [];
      private productsObservable : Observable<Case[]> ; 
      private browserLang = 'en';
      importuploader: FileUploader;

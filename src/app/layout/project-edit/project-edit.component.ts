@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 import { LayoutService } from '../layout.service';
 import { Project } from '../project/project';
@@ -16,7 +16,7 @@ import { Project } from '../project/project';
 export class ProjectEditComponent implements OnInit {
       projectId: number;
       project= new Project();
-      constructor(private layoutService: LayoutService, private route: ActivatedRoute) {}
+      constructor(private layoutService: LayoutService, private route: ActivatedRoute, private router: Router) {}
   
 	  ngOnInit() {
 	     this.route.params.subscribe((params) => this.projectId = params.projectId);
@@ -38,12 +38,14 @@ export class ProjectEditComponent implements OnInit {
 	            },
 	            () => {
 	                console.log("The POST observable is now completed.");
-	                window.location.href = "/project";
+					//window.location.href = "/listproject";
+					this.router.navigate(['listproject']);
 	            });
 	     
 	     }
 	     
 	       back(){
-	     window.location.href = "/project";
+		// window.location.href = "/listproject";
+		 this.router.navigate(['listproject']);
 	   }
 }

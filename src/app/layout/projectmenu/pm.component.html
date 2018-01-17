@@ -1,13 +1,16 @@
 <nav class="sidebar" [ngClass]="{sidebarPushRight: isActive}">
 	<ul class="list-group">
-		<a [routerLink]="['/project']"
+		<a [routerLink]="['/listproject']"
 			[routerLinkActive]="['router-link-active']" class="list-group-item">
 			<i class="fa fa-fw fa-dashboard"></i>&nbsp;projects
 		</a>
 	</ul>
 	<ul class="list-group" *ngFor="let project of projects let i = index">
 
-		<a href="javascript:void(0);" (click)="redirect(project.projectId)" class="list-group-item" style="margin-left: 50px;">
+		<a 
+
+		href="javascript:void(0);" (click)="redirect(project.projectId)" 
+	class="list-group-item" style="margin-left: 50px;">
 			{{project.projectName}}
 		</a>
 	</ul>

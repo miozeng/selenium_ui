@@ -13,7 +13,7 @@ import { Project } from './project';
 })
 export class ProjectComponent implements OnInit {
      baseurl :string;
-     private projects : Project[] = [];
+      projects : Project[] = [];
      private productsObservable : Observable<Project[]> ; 
      private browserLang = 'en';
     constructor(private layoutService: LayoutService, private translate: TranslateService) {
@@ -22,7 +22,7 @@ export class ProjectComponent implements OnInit {
 
     ngOnInit() {
      this.browserLang = this.translate.getBrowserLang();
-     this.baseurl = this.layoutService.get_base_url()+'/project/';
+     this.baseurl = '/selenium_tools/project/';
       this.layoutService.get_projects().subscribe((res : Project[])=>{
              this.projects = res;
 		     console.log( "projects:"+res);

@@ -11,6 +11,8 @@ export class Step {
    doType: string;
    excptValue: string;
    url: string;
+   elementSeq: number;
+   waitTime: number;
    testCase:{
      caseId: number;
    };

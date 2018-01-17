@@ -20,10 +20,6 @@ export class MyHttpLogInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     console.log('processing request', request);
      MyHttpLogInterceptor.loading.open();
-   // const customReq = request.clone({
-   //   headers: request.headers.set('app-language', 'it')
-    //});
-
     return next
       .handle(request)
       .do((ev: HttpEvent<any>) => {

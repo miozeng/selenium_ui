@@ -27,7 +27,7 @@
                             <td> {{module.modulName}}</td>
                             <td>{{module.modulDesc}}</td>
                              <td>{{module.excuteDate | date:'yyyy-MM-dd hh:mm:ss'}}</td>
-                            <td><a [routerLink]="['/case/'+module.modulId]" [routerLinkActive]="['router-link-active']" >case</a></td>
+                            <td><a [routerLink]="['/listcase/'+module.modulId]" [routerLinkActive]="['router-link-active']" >case</a></td>
                             <td><a [routerLink]="['/moduleedit/'+ projectId+'/'+module.modulId]" [routerLinkActive]="['router-link-active']" >edit</a></td>
                             <td><a href="javascript:void(0);" (click)="delete(module.modulId)" >Delete</a></td>
                             <td><a href="javascript:void(0);" (click)="runTest(module.modulId)">Run test</a></td>

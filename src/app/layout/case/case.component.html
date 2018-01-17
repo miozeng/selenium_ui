@@ -31,7 +31,7 @@
                             <td >{{case.caseNo}}</td>
                             <td >{{case.sequence}}</td>
                             <td >{{case.success}}</td>
-                            <td><a [routerLink]="['/step/'+case.caseId]" [routerLinkActive]="['router-link-active']" >step</a></td>
+                            <td><a [routerLink]="['/liststep/'+case.caseId]" [routerLinkActive]="['router-link-active']" >step</a></td>
                             <td><a [routerLink]="['/caseedit/'+ modulId +'/'+case.caseId]" [routerLinkActive]="['router-link-active']" >edit</a></td>
                              <td><a href="javascript:void(0);" (click)="delete(case.caseId)">Delete</a></td>
                             <td><a href="javascript:void(0);" (click)="runTest(case.caseId)">Run test</a></td>

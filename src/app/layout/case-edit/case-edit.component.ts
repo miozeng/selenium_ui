@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Route, Router, ActivatedRoute } from '@angular/router';
 
 import { LayoutService } from '../layout.service';
 import { Module } from '../module/module';
@@ -19,7 +19,7 @@ export class CaseEditComponent implements OnInit {
       caseId: number;
       module= new Module();
       case= new Case();
-      constructor(private layoutService: LayoutService, private route: ActivatedRoute) {}
+	  constructor(private layoutService: LayoutService, private route: ActivatedRoute, private router: Router) {}
   
 	  ngOnInit() {
 	     this.route.params.subscribe((params) => this.moduleId = params.moduleId);
@@ -47,12 +47,14 @@ export class CaseEditComponent implements OnInit {
 	            },
 	            () => {
 	                console.log("The POST observable is now completed.");
-	                window.location.href = "/case/"+this.moduleId;
+					//window.location.href = "/listcase/"+this.moduleId;
+					this.router.navigate(['listcase/'+this.moduleId]);
 	            });
 	     
 	     }
 	     
 	   back(){
-	     window.location.href = "/case/"+this.moduleId;
+		 //window.location.href = "/listcase/"+this.moduleId;
+		 this.router.navigate(['listcase/'+this.moduleId]);
 	   }
 }

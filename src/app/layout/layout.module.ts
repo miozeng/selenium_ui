@@ -6,7 +6,7 @@ import { TranslateModule } from '@ngx-translate/core';
 
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
-import { HeaderComponent, SidebarComponent,LoadingBarComponent } from '../shared';
+import { HeaderComponent,LoadingBarComponent } from '../shared';
 import { ProjctMenuComponent } from './projectmenu/pm.component';
 import { MyHttpLogInterceptor } from '../shared/interceptor/http.interceptor';
 
@@ -26,7 +26,6 @@ import { LoadingModule } from 'ngx-loading';
     declarations: [
         LayoutComponent,
         HeaderComponent,
-        SidebarComponent,
         ProjctMenuComponent,
         LoadingBarComponent
        // LayoutService

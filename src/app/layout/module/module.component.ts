@@ -15,7 +15,7 @@ import { Module } from './module';
 export class ModuleComponent implements OnInit {
     baseurl :string;
     projectId:number;
-     private modules : Module[] = [];
+     modules : Module[] = [];
      private productsObservable : Observable<Module[]> ; 
      private browserLang = 'en';
     constructor(private layoutService: LayoutService, private translate: TranslateService, private route: ActivatedRoute) {
@@ -24,7 +24,7 @@ export class ModuleComponent implements OnInit {
 
     ngOnInit() {
      this.browserLang = this.translate.getBrowserLang();
-     this.baseurl = this.layoutService.get_base_url()+'/project/';
+     this.baseurl = '/selenium_tools/project/';
       this.route.params.subscribe((params) => this.projectId = params.projectId);
 		 if(this.projectId != 0){
 		       this.layoutService.get_modules(this.projectId).subscribe((res : Module[])=>{

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { routerTransition } from '../../router.animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 
 import { LayoutService } from '../layout.service';
 import { Step } from '../step/step';
@@ -19,7 +19,7 @@ export class StepEditComponent implements OnInit {
       step= new Step();
       case= new Case();
       caseId: number;
-      constructor(private layoutService: LayoutService, private route: ActivatedRoute) {}
+      constructor(private layoutService: LayoutService, private route: ActivatedRoute, private router: Router) {}
   
 	  ngOnInit() {
 	      this.route.params.subscribe((params) => this.stepId = params.stepId);
@@ -48,11 +48,13 @@ export class StepEditComponent implements OnInit {
 	            },
 	            () => {
 	                console.log("The POST observable is now completed.");
-	                window.location.href = "/step/"+this.caseId;
+					//window.location.href = "/liststep/"+this.caseId;
+					this.router.navigate(['liststep/'+this.caseId]);
 	            });
 	     
 	     }
 	    back(){
-	     window.location.href = "/step/"+this.caseId;
+		// window.location.href = "/liststep/"+this.caseId;
+		 this.router.navigate(['liststep/'+this.caseId]);
 	    }
 }

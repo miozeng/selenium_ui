@@ -14,7 +14,7 @@ import { MyHttpLogInterceptor } from './shared/interceptor/http.interceptor';
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: Http) {
     // for development
-    return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+    return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
 }
 @NgModule({
     declarations: [
